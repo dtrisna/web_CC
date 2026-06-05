@@ -10,11 +10,13 @@ class UserSeeder extends Seeder
 {
     public function run(): void
     {
-        User::first0rCreate([
-            'nama' => 'Admin VetCare',
-            'email' => 'admin@vetcare.com',
-            'password' => Hash::make('admin123'),
-            'role' => 'admin',
-        ]);
+        User::firstOrCreate(
+    ['email' => 'admin@vetcare.com'],
+    [
+        'nama' => 'Admin VetCare',
+        'password' => bcrypt('admin123'),
+        'role' => 'admin',
+    ]
+);
     }
 }
